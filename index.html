@@ -11,9 +11,12 @@
 <body>
     <div id="app">
         <h1>Le tue 10 e-mail random sono:</h1>
-        <ol>
+
+        <ol v-if="counter = 10">
             <li v-for="email in emails"><strong>{{ email }}</strong></li>
         </ol>
+
+        <h3 v-else>Loading...</h3>
 
     </div>
 

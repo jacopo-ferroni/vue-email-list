@@ -5,7 +5,7 @@
 
     data : {
         emails : [],
-        i : 0,
+        counter : 0,
     },
 
     created()  {
@@ -15,31 +15,33 @@
     methods : {
         randomEmail () {
 
-            const self = this;
+            for(let i = 0; i < 10; i++) {
 
-            while(self.i < 10) {
-
-                axios.get('/user?ID=12345')
-
-                .then(function (response) {
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+    
+                .then((response) => {
                     // handle success
-                    console.log(response);
-                    self.emails.push(response.data.response)
-                    self.i++;
+                    console.log(response.data.response);
+                    this.emails.push(response.data.response)
+                    this.counter++;
                 })
-
+    
                 .catch(function (error) {
                     // handle error
                     console.log(error);
                 })
-
+    
                 .then(function () {
                     // always executed
                 });
-
+                
             }
 
-        }
-    
+
+        },
+
+
     }
+    
+
 });
